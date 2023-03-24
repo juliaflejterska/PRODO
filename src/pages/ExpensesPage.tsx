@@ -1,7 +1,12 @@
 import React from "react";
+import Expenses from "../components/Expenses/Expenses";
 
 const ExpensesPage: React.FC = () => {
-  return <div>Expenses</div>;
+  return (
+    <>
+      <Expenses />
+    </>
+  );
 };
 
 export default ExpensesPage;

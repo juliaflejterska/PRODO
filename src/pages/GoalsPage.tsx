@@ -1,7 +1,12 @@
 import React from "react";
+import Goals from "../components/Goals/Goals";
 
 const GoalsPage: React.FC = () => {
-  return <div>Goals</div>;
+  return (
+    <>
+      <Goals />
+    </>
+  );
 };
 
 export default GoalsPage;
