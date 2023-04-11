@@ -3,9 +3,9 @@ import Goals from "../components/Goals/Goals";
 
 const GoalsPage: React.FC = () => {
   return (
-    <>
+    <section style={{ marginTop: "100px" }}>
       <Goals />
-    </>
+    </section>
   );
 };
 

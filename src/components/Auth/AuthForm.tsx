@@ -35,6 +35,7 @@ export const AuthForm = ({ onLogin, onRegister }: AuthFormProps) => {
     <Form
       onSubmit={handleSubmit(onSubmit)}
       className="d-flex flex-column align-items-center text-center gap-4"
+      style={{ backgroundColor: "white", padding: "30px", borderRadius: "6px" }}
     >
       <div className="d-flex flex-column align-items-center gap-2">
         <Form.Label htmlFor="email" style={{ fontSize: "1.25rem" }}>
@@ -43,7 +44,7 @@ export const AuthForm = ({ onLogin, onRegister }: AuthFormProps) => {
         <Form.Control
           id="email"
           type="text"
-          style={{ width: "300px" }}
+          style={{ width: "250px" }}
           {...register("email", {
             required: true,
             pattern: /\S+@\S+\.\S+/,
@@ -51,13 +52,13 @@ export const AuthForm = ({ onLogin, onRegister }: AuthFormProps) => {
         />
 
         {errors.email?.type === "required" && (
-          <Form.Text style={{ color: "#a81d1d", width: "300px" }}>
+          <Form.Text style={{ color: "#a81d1d", width: "250px" }}>
             E-mail field is required.
           </Form.Text>
         )}
 
         {errors.email?.type === "pattern" && (
-          <Form.Text style={{ color: "#a81d1d", width: "300px" }}>
+          <Form.Text style={{ color: "#a81d1d", width: "250px" }}>
             Entered value does not match e-mail format.
           </Form.Text>
         )}
@@ -70,16 +71,16 @@ export const AuthForm = ({ onLogin, onRegister }: AuthFormProps) => {
         <Form.Control
           id="password"
           type="password"
-          style={{ width: "300px" }}
+          style={{ width: "250px" }}
           {...register("password", { required: true, minLength: 8 })}
         />
         {errors.password?.type === "required" && (
-          <Form.Text style={{ color: "#a81d1d", width: "300px" }}>
+          <Form.Text style={{ color: "#a81d1d", width: "250px" }}>
             Password field is required.
           </Form.Text>
         )}
         {errors.password?.type === "minLength" && (
-          <Form.Text style={{ color: "#a81d1d", width: "300px" }}>
+          <Form.Text style={{ color: "#a81d1d", width: "250px" }}>
             Password must be at least 8 characters long.
           </Form.Text>
         )}
@@ -89,14 +90,14 @@ export const AuthForm = ({ onLogin, onRegister }: AuthFormProps) => {
         <Button
           variant="dark"
           type="submit"
-          style={{ fontSize: "1.25rem", width: "300px" }}
+          style={{ fontSize: "1.25rem", width: "250px" }}
         >
           {isRegistering ? "REGISTER NOW" : "LOG IN"}
         </Button>
         <Button
           variant="secondary"
           type="button"
-          style={{ fontSize: "1.25rem", width: "300px" }}
+          style={{ fontSize: "1.25rem", width: "250px" }}
           onClick={() => setIsRegistering(!isRegistering)}
         >
           {isRegistering ? "Already have an account?" : "Need to register?"}

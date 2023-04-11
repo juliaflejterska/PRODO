@@ -11,12 +11,18 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "bootstrap": "^5.2.3",
+    "date-fns": "^2.29.3",
     "react": "^18.2.0",
+    "react-big-calendar": "^1.6.9",
     "react-bootstrap": "^2.7.2",
+    "react-datetime-picker": "^4.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.7",
+    "react-icons": "^4.8.0",
+    "react-paginate": "^8.1.5",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.2",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -43,5 +49,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-big-calendar": "^1.6.3",
+    "@types/react-datetime-picker": "^3.4.1"
   }
 }

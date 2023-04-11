@@ -11,3 +11,49 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.rbc-event {
+  background-color: black;
+}
+
+@media only screen and (max-width: 767px) {
+  .rbc-calendar {
+    margin: 20px !important;
+    overflow: scroll;
+    font-size: 12px;
+  }
+
+  .rbc-toolbar {
+    justify-content: left;
+  }
+
+  .rbc-month-view,
+  .rbc-time-view {
+    width: 700px !important;
+  }
+}
+
+.pagination {
+  padding: 20px 0;
+  display: flex;
+  gap: 15px;
+}
+
+.pagination-item {
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
+.pagination-active {
+  text-decoration: none;
+  background-color: black;
+  color: white;
+}
+
+.pagination-button {
+  padding-top: 2px;
+}
+
+.pagination-button a {
+  /* text-decoration: none; */
+  color: black;
+}

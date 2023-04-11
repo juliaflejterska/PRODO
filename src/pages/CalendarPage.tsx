@@ -1,11 +1,11 @@
 import React from "react";
-import Calendar from "../components/Calendar/Calendar";
+import BigCalendar from "../components/Calendar/Calendar";
 
 const CalendarPage: React.FC = () => {
   return (
-    <>
-      <Calendar />
-    </>
+    <section style={{ marginTop: "100px" }}>
+      <BigCalendar />
+    </section>
   );
 };
 
