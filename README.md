@@ -4,7 +4,7 @@
 
 ---
 
-PRODO is a React application that is used to <b> monitor your productivity </b> so that you can improve your performance as much as possible and become <b> the best </b> version of yourself.
+PRODO is a React with TypeScript application that is used to <b> monitor your productivity </b> so that you can improve your performance as much as possible and become <b> the best </b> version of yourself.
 
 ---
 
