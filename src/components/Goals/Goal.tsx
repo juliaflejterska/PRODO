@@ -1,6 +1,5 @@
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
-//import GoalsForm from "./GoalsForm";
 import { BiEdit } from "react-icons/bi";
 import { RiCloseCircleLine } from "react-icons/ri";
 import GoalsForm from "./GoalsForm";
@@ -88,6 +87,7 @@ const Goal: React.FC<GoalProps> = ({ goals, removeGoal, updateGoal }) => {
 
       {edit.id === null && (
         <>
+          <div>{displayGoals}</div>
           <ReactPaginate
             previousLabel={"previous"}
             nextLabel={"next"}
@@ -100,7 +100,6 @@ const Goal: React.FC<GoalProps> = ({ goals, removeGoal, updateGoal }) => {
             previousClassName={"pagination-button"}
             pageRangeDisplayed={3}
           />
-          <div>{displayGoals}</div>
         </>
       )}
     </>

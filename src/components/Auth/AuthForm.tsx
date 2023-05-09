@@ -102,6 +102,10 @@ export const AuthForm = ({ onLogin, onRegister }: AuthFormProps) => {
         >
           {isRegistering ? "Already have an account?" : "Need to register?"}
         </Button>
+
+        <Form.Text>
+          For testing purposes use "test@test.com" and "12345678".
+        </Form.Text>
       </div>
     </Form>
   );

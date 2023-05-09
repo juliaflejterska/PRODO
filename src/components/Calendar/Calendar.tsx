@@ -162,7 +162,7 @@ const BigCalendar: React.FC = () => {
 
     if (newEvent.title.trim() === "" || newEvent.title.length === 0) {
       showInfoModalWithMessage(
-        "Name cannot be empty. Please enter a valid name."
+        "Title cannot be empty. Please enter a valid title."
       );
       return;
     }

@@ -97,7 +97,7 @@ const GoalsForm = (props: GoalsFormProps) => {
 
       <InfoModal
         show={showModal}
-        message="Name cannot be empty. Please enter a valid name."
+        message="Title cannot be empty. Please enter a valid title."
         handleClose={handleCloseModal}
       />
     </>

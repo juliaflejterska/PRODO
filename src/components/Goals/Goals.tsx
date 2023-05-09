@@ -3,6 +3,7 @@ import Select from "react-select";
 
 import GoalsForm from "./GoalsForm";
 import Goal from "./Goal";
+import { DUMMYGOALS } from "../../constans";
 
 interface GoalItem {
   id: number;
@@ -30,7 +31,7 @@ const Goals: React.FC<Props> = () => {
 
   useEffect(() => {
     const goalsFromLS = JSON.parse(localStorage.getItem("goals") || "[]");
-    setGoals(goalsFromLS);
+    setGoals(goalsFromLS.length ? goalsFromLS : DUMMYGOALS);
   }, []);
 
   useEffect(() => {
