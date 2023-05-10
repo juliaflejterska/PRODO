@@ -3,6 +3,7 @@ import ReactPaginate from "react-paginate";
 import { BiEdit } from "react-icons/bi";
 import { RiCloseCircleLine } from "react-icons/ri";
 import GoalsForm from "./GoalsForm";
+import { Button } from "react-bootstrap";
 
 interface GoalItem {
   id: number;
@@ -71,7 +72,7 @@ const Goal: React.FC<GoalProps> = ({ goals, removeGoal, updateGoal }) => {
   return (
     <>
       {edit.id !== null && (
-        <div className="edit-goal mt-5">
+        <div className="edit-goal mt-5" style={{ width: "325px" }}>
           <span style={{ fontSize: "20px", fontWeight: "600" }}>
             Edit your goal ({edit.text}):
           </span>
@@ -82,6 +83,13 @@ const Goal: React.FC<GoalProps> = ({ goals, removeGoal, updateGoal }) => {
             editGoal={edit}
             onSubmit={submitGoalUpdate}
           />
+          <Button
+            variant="secondary"
+            onClick={() => setEdit({ id: null, text: "" })}
+            style={{ width: "325px", marginTop: "-40px" }}
+          >
+            DISCARD CHANGES
+          </Button>
         </div>
       )}
 
