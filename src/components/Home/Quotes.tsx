@@ -18,7 +18,7 @@ const Quotes: React.FC = () => {
       .then(function (data: Quote[]) {
         const random: Quote = data[Math.floor(Math.random() * data.length)];
         setQuote(random.text);
-        setAuthor(random.author);
+        setAuthor(random.author.slice(0, -10));
       });
   };
 
