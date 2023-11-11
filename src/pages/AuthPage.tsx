@@ -4,6 +4,7 @@ import AuthContext from "../context/auth-context";
 
 const LoginPage: React.FC = () => {
   const API_URL: string = "https://identitytoolkit.googleapis.com/v1/accounts";
+  const API_KEY: string = "AIzaSyAyQE1d89NcjxsGakghI1HdErfhDU499aQ"; // Replace with your actual API Key
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -12,7 +13,7 @@ const LoginPage: React.FC = () => {
   const handleFetch = (url: string, email: string, password: string): void => {
     setIsLoading(true);
 
-    fetch(`${API_URL}:${url}?key=AIzaSyAyQE1d89NcjxsGakghI1HdErfhDU499aQ`, {
+    fetch(`${API_URL}:${url}?key=${API_KEY}`, {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -30,10 +31,16 @@ const LoginPage: React.FC = () => {
           return res.json();
         }
 
-        if (!res.ok) {
-          return res.json().then((data) => {
-            throw new Error("Authentication failed.");
-          });
+        if (url === "signUp" && res.status === 400) {
+          throw new Error(
+            "Registration failed: An account with this email address already exists."
+          );
+        } else if (url === "signInWithPassword" && res.status === 400) {
+          throw new Error(
+            "Login failed: Please check your credentials and try again."
+          );
+        } else {
+          throw new Error("Authentication failed.");
         }
       })
       .then((data) => {
