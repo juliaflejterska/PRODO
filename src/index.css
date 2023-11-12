@@ -12,6 +12,10 @@ body {
   background-color: black;
 }
 
+.react-datetime-picker__wrapper {
+  border: none !important;
+}
+
 @media only screen and (max-width: 767px) {
   .rbc-calendar {
     margin: 20px !important;

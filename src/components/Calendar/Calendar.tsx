@@ -180,8 +180,9 @@ const BigCalendar: React.FC = () => {
     }
 
     if (!titleIsEmpty && startIsDate && endIsDate) {
-      setEvents([newEvent, ...events]);
-      localStorage.setItem("events", JSON.stringify([newEvent, ...events]));
+      const updatedEvents = [newEvent, ...events]; // Stworzenie nowej listy wydarzeń z nowym wydarzeniem na początku
+      setEvents(updatedEvents); // Ustawienie nowego stanu
+      localStorage.setItem("events", JSON.stringify(updatedEvents)); // Zapisanie do localStorage
     }
 
     setNewEvent({
@@ -217,7 +218,7 @@ const BigCalendar: React.FC = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" style={{ width: "325px" }}>
-            <Form.Label>Event's start date</Form.Label>
+            <Form.Label>Start date</Form.Label>
             <DateTimePicker
               yearPlaceholder="yyyy"
               monthPlaceholder="mm"
@@ -226,12 +227,14 @@ const BigCalendar: React.FC = () => {
               minutePlaceholder="mm"
               value={newEvent.start}
               onChange={setStartDate}
+              disableClock={true}
+              disableCalendar={true}
               className="form-control"
             />
           </Form.Group>
 
           <Form.Group className="mb-3" style={{ width: "325px" }}>
-            <Form.Label>Event's end date</Form.Label>
+            <Form.Label>End date</Form.Label>
             <DateTimePicker
               yearPlaceholder="yyyy"
               monthPlaceholder="mm"
@@ -240,6 +243,8 @@ const BigCalendar: React.FC = () => {
               minutePlaceholder="mm"
               value={newEvent.end}
               onChange={setEndDate}
+              disableClock={true}
+              disableCalendar={true}
               className="form-control"
             />
           </Form.Group>

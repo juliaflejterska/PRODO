@@ -65,6 +65,17 @@ type ExpenseContextProviderProps = {
 export const ExpenseContextProvider = ({
   children,
 }: ExpenseContextProviderProps) => {
+  const transactionsFromLocalStorage = JSON.parse(
+    localStorage.getItem("transactions") || "[]"
+  );
+  const initialState: ExpenseState = {
+    transactions: transactionsFromLocalStorage.length
+      ? transactionsFromLocalStorage
+      : DUMMY_TRANSACTIONS,
+    addTransaction: () => {},
+    deleteTransaction: () => {},
+  };
+
   const [state, dispatch] = useReducer(expenseReducer, initialState);
 
   const addTransaction = (transaction: Transaction) => {
