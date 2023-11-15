@@ -1,4 +1,4 @@
-import { useState, useContext, ChangeEvent, FormEvent } from "react";
+import React, { useState, useContext, ChangeEvent, FormEvent } from "react";
 import { ExpenseContext } from "../../context/expense-context";
 import { Button, Form } from "react-bootstrap";
 import InfoModal from "../Layout/InfoModal";
@@ -13,14 +13,18 @@ const AddTransaction = (): JSX.Element => {
   const { addTransaction } = useContext(ExpenseContext);
 
   const [text, setText] = useState<string>("");
-  const [amount, setAmount] = useState<number>();
+  const [amount, setAmount] = useState<string>("");
 
   const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
 
   const handleAmountChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setAmount(Number(e.target.value));
+    const inputValue = e.target.value;
+    // Walidacja, czy wprowadzona wartość jest liczbą
+    if (/^-?\d*\.?\d*$/.test(inputValue) || inputValue === "") {
+      setAmount(inputValue);
+    }
   };
 
   const [modalShow, setModalShow] = useState(false);
@@ -39,7 +43,7 @@ const AddTransaction = (): JSX.Element => {
       return;
     }
 
-    if (!amount) {
+    if (!amount || isNaN(Number(amount))) {
       setModalMessage(
         "Amounts should be positive or negative values. Please enter a valid amount."
       );
@@ -50,10 +54,10 @@ const AddTransaction = (): JSX.Element => {
     const newTransaction: Transaction = {
       id: Math.floor(Math.random() * 100000),
       text: text,
-      amount: amount,
+      amount: Number(amount),
     };
 
-    setAmount(undefined);
+    setAmount("");
     setText("");
 
     addTransaction(newTransaction);
@@ -74,10 +78,11 @@ const AddTransaction = (): JSX.Element => {
         <Form.Group className="mb-3" style={{ width: "325px" }}>
           <Form.Label>Positive/Negative amount</Form.Label>
           <Form.Control
-            type="number"
+            type="text"
             placeholder="Enter amount"
-            value={amount ?? ""}
+            value={amount}
             onChange={handleAmountChange}
+            inputMode="numeric"
           />
         </Form.Group>
         <Button variant="dark" type="submit" style={{ width: "325px" }}>
