@@ -68,14 +68,6 @@ const Goals: React.FC<Props> = () => {
     localStorage.setItem("goals", JSON.stringify(removeArray));
   };
 
-  const updateGoal = (goalId: number, newGoal: GoalItem) => {
-    const editedGoals = [...goals].map((goal) =>
-      goal.id === goalId ? newGoal : goal
-    );
-    setGoals(editedGoals);
-    localStorage.setItem("goals", JSON.stringify(editedGoals));
-  };
-
   return (
     <>
       <div
@@ -118,13 +110,7 @@ const Goals: React.FC<Props> = () => {
           id="category-select"
         />
 
-        <Goal
-          goals={selectedGoals}
-          removeGoal={removeGoal}
-          updateGoal={(id: number, newGoal: GoalItem) =>
-            updateGoal(id, newGoal)
-          }
-        />
+        <Goal goals={selectedGoals} removeGoal={removeGoal} />
       </div>
     </>
   );
