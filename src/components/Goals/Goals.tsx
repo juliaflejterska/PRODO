@@ -115,6 +115,7 @@ const Goals: React.FC<Props> = () => {
               width: "325px",
             }),
           }}
+          id="category-select"
         />
 
         <Goal
