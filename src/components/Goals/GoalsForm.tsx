@@ -88,6 +88,7 @@ const GoalsForm = (props: GoalsFormProps) => {
             value={selectedCategory}
             options={categories}
             onChange={handleCategoryChange}
+            id="goals-select"
           />
         </Form.Group>
         <Button variant="dark" type="submit" style={{ width: "325px" }}>
