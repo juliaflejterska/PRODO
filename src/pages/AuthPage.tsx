@@ -4,7 +4,7 @@ import AuthContext from "../context/auth-context";
 
 const LoginPage: React.FC = () => {
   const API_URL: string = "https://identitytoolkit.googleapis.com/v1/accounts";
-  const API_KEY: string = "AIzaSyAyQE1d89NcjxsGakghI1HdErfhDU499aQ";
+  const API_KEY: string = "AIzaSyCdP86gAQtqC7EDIBO1qgt3NrJlRrIR__o";
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
